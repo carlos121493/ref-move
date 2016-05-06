@@ -1,0 +1,13 @@
+language node_js
+
+notifications:
+	email:
+		- guowei@shnow.cn
+
+node_js
+	- 0.12
+
+script
+	- npm run test
+	- npm run cover
+	- cat ./coverage/lcov.info | node ./node_modules/coveralls/bin/coveralls
