@@ -1,5 +1,5 @@
 var expect = require('expect.js');
-var refMove = require('../../');
+var refMove = require('../../src');
 var fs = require('fs');
 
 describe('test readContent', function() {

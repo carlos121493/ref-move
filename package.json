@@ -2,9 +2,10 @@
   "name": "ref-move",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "./lib",
   "scripts": {
-    "test": "mocha tests/spec --compilers js:babel-core/register -R dot"
+    "test": "mocha tests/spec --compilers js:babel-core/register -R dot",
+    "build": "rm -rf lib && babel src -o lib"
   },
   "repository": {
     "type": "git",
