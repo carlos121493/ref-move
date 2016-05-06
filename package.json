@@ -4,10 +4,10 @@
   "description": "",
   "main": "./lib",
   "scripts": {
-    "test": "mocha tests/spec --compilers js:babel-core/register -R dot",
+    "test": "mocha tests/spec --compilers js:babel-core/register -R list",
     "build": "rm -rf lib && babel src -o lib",
-    "cover": "babel-node ./node_modules/.bin/babel-istanbul",
-    "coveralls": "cat ./coverage/lcov.info | coveralls'"
+    "cover": "babel-node ./node_modules/.bin/babel-istanbul cover ./node_modules/.bin/_mocha -- -R list tests/spec --no-timeouts",
+    "coveralls": "cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls'"
   },
   "repository": {
     "type": "git",
