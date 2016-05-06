@@ -1,13 +1,13 @@
 language: node_js
 
 notifications:
-	email:
-		- guowei@shnow.cn
+    email:
+        - guowei@shnow.cn
 
 node_js:
-	- 0.12
+  - 0.12
 
 script:
-	- npm run test
-	- npm run cover
-	- npm run coveralls
+  - npm test
+  - npm run cover
+  - npm run coveralls
