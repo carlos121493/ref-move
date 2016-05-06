@@ -1,4 +1,4 @@
-var expect = require('expect');
+var expect = require('expect.js');
 
 describe('import transfer', function(){
 
