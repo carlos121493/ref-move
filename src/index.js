@@ -6,7 +6,7 @@ import fs from 'fs';
 
 function hasFilePath(fileName) {
 	try {
-		return fs.realpathSync(fileName);
+		return fs.statSync(fileName).isFile();
 	} catch(e) {
 		return false;
 	}
@@ -30,27 +30,17 @@ function hasRelative(file) {
 	return findRelative(file).length;
 }
 
-function replaceRelative(source, dist, content, autoWrite) {
+function replaceRelative(source, content) {
+	if (!source) {
+		throw('please pass correct source or content info');
+	}
+
 	const fileCon = typeof content === 'string' ? content : readContent(source);
 	const hasR = hasRelative(fileCon);
 	if(!!hasR) {
-		const filePath = path.dirname(source);
-		const fileName = path.basename(source);
-		if (!fileName || !fileCon) {
-			throw('please pass correct source or content info');
-		}
-
-		if (!dist) {
-			throw('please pass correct dist');
-		}
-
-		const distDir = path.dirname(dist);
+		const filePath = hasFilePath(source) ? path.dirname(source) : source;
 		const replaceRe = new RegExp(findRelative(fileCon).join('|'), 'g');
-		return replaceRe;
-		const transferContent = fileCon.replace(replaceRe, item => path.join(path.relative(distDir, source), item));
-		if (autoWrite) {
-			fs.writeFileSync(distDir, transferContent, 'utf-8');
-		}
+		const transferContent = fileCon.replace(replaceRe, item => path.join(filePath, item));
 		return transferContent;
 	}
 	return fileCon;
@@ -58,6 +48,7 @@ function replaceRelative(source, dist, content, autoWrite) {
 }
 
 export default {
+	hasFilePath,
 	readContent,
 	findRelative,
 	hasRelative,
