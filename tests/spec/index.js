@@ -10,7 +10,7 @@ const relativePath = path.join(__dirname, '../file-feature/relative-ref.js');
 
 describe('read file content', function() {
 	it('from file', function(){ 
-		const filePath = path.join(cwd, '../../package.json');
+		const filePath = path.join(cwd, './tests/file-feature/relative-ref.js');
 		const content = refMove.readContent(filePath);
 		expect(content).to.eql(fs.readFileSync(filePath, 'utf-8'))
 	});
