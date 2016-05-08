@@ -86,6 +86,6 @@ describe('replace relative refrence', function() {
 		expect(path.dirname(matchRequire[0])).to.be(cwd);
 		expect(matchImport).to.have.length(1);
 		expect(path.isAbsolute(matchImport[0])).to.be.ok();
-		expect(path.dirname(matchImport[0])).to.be(path.join(cwd, 'tests'));
+		expect(path.dirname(matchImport[0])).to.be(path.join(cwd, 'test'));
 	})
 })
