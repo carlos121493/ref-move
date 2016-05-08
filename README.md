@@ -4,9 +4,11 @@
 
 a tool for let javascript files reference relative path to absolute;
 
-- import '../test' => import '/<your root>/<project path>/test'
-- import {test} from '../test' => import test from '/<your root>/<project path>/test'
-- const test = require('../test') => const test = require('/<your root>/<project path>/test)
+```
+import '../test' => import '/<your root>/<project path>/test'
+import {test} from '../test' => import test from '/<your root>/<project path>/test'
+const test = require('../test') => const test = require('/<your root>/<project path>/test)
+```
 
 [![Coverage Status](https://coveralls.io/repos/github/carlos121493/ref-move/badge.svg?branch=master)](https://coveralls.io/github/carlos121493/ref-move?branch=master)
 [![node](https://img.shields.io/node/v/gh-badges.svg?maxAge=2592000)](https://nodejs.org/download/)
