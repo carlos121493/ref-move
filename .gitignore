@@ -26,4 +26,4 @@ spm_modules
 dist
 tests/*.css
 coverage
-./lib
+lib/

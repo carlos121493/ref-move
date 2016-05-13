@@ -1,4 +1,3 @@
-import 'babel-polyfill';
 import matchedRequire from 'match-require';
 import {isRelative} from 'path';
 import path from 'path';

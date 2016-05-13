@@ -1,13 +1,14 @@
 {
   "name": "ref-move",
-  "version": "1.0.0",
+  "version": "1.0.3",
   "description": "",
   "main": "./lib/",
   "scripts": {
     "test": "mocha tests/spec --compilers js:babel-core/register -R list",
     "build": "rm -rf lib && babel src -d lib -s",
     "cover": "babel-node ./node_modules/.bin/babel-istanbul cover ./node_modules/.bin/_mocha -- -R list tests/spec --no-timeouts",
-    "coveralls": "cat ./coverage/lcov.info | ./node_modules/.bin/coveralls"
+    "coveralls": "cat ./coverage/lcov.info | ./node_modules/.bin/coveralls",
+    "pub": "npm run build && npm publish && rm -rf ./lib && git publish"
   },
   "repository": {
     "type": "git",
